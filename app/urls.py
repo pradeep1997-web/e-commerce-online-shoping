@@ -8,6 +8,7 @@ from .forms import LoginForm,MyPasswordChangeForm
 urlpatterns = [
 
     path('',views.ProductView.as_view(), name='home'),
+    path('home-copy/',views.CopyHomeView.as_view(), name='copyhome'),
     path('product-detail/<int:pk>', views.ProductDetailView.as_view() ,name='product-detail'),
     path('add-to-cart/', views.add_to_cart, name='add-to-cart'),
 

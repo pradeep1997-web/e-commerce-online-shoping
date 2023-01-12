@@ -28,6 +28,17 @@ class ProductView(View):
   return render(request, 'app/home.html',{ 'topwears':topwears,'Bootomwears':Bootomwears,'Mobile':Mobile, 'Laptop':Laptop})
 
 
+class CopyHomeView(View):
+    def get(self, request):
+        topwears = Product.objects.filter(category='Tw')
+        Bootomwears = Product.objects.filter(category='Bw')
+        Mobile = Product.objects.filter(category='M')
+        Laptop = Product.objects.filter(category='L')
+        return render(request, 'app/copyhome.html',
+                      {'topwears': topwears, 'Bootomwears': Bootomwears, 'Mobile': Mobile, 'Laptop': Laptop})
+
+
+
 class ProductDetailView(View):
  def get(self, request, pk):
   product = Product.objects.get(pk=pk)
